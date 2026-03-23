@@ -38,7 +38,7 @@ public class NpcMovable : NPCBase
         if(hasBot && !hasFront)
         {
             float mod = isLeft ? -1 : 1;
-            rb.velocity = new Vector2(mod * speed, rb.velocity.y);
+            rb.linearVelocity = new Vector2(mod * speed, rb.linearVelocity.y);
         }
         else
         {

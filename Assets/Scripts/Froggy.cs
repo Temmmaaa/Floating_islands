@@ -61,7 +61,7 @@ public class Froggy : MonoBehaviour
     private void Move()
     {
         float moveInput = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+        rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
         animator.SetBool("Run", moveInput != 0);
         if(moveInput != 0)
         {
@@ -76,12 +76,12 @@ public class Froggy : MonoBehaviour
         {
             if (isGrounded)
             {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 animator.SetBool("Jump", true);
             }
             else if (!isDoubleJump)
             {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 animator.SetTrigger("DoubleJump");
                 isDoubleJump = true;
             }
